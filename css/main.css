@@ -1,34 +1,91 @@
 @import url('reset.css');
 
-#outer-wrapper{
-  display:flex;
-  flex-flow:row wrap;
-  width:1200px;
-  height:800px;
-  margin:0 auto;
-  border:1px solid black;
-  padding: 10px;
+#outer-wrapper {
+/*   display:flex; */
+/*   flex-flow:row wrap; */
+  width:100vw;
+  height:100vh;
+  background-color:green;
+  margin:0 auto; 
+/*   border:1px solid black; */
 }
-
 #vs {
   width:200px;
   height:200px;
-  border:1px solid black;
-  margin:auto;
-}
-
-.movie-poster{
-  width:400px;
-  height:600px;
-  border:1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -80px 0 0 -170px;
+  z-index:100;
+/*   border:1px solid black; */
+  
+  animation-name:rotate;
+  animation-duration:1s;
+  animation-timing-function:ease-in;
+  animation-iteration-count: infinite;
   
 }
 
+@keyframes rotate {
+  0% {transform: rotate(0deg);}
+  50%{transform: rotate(7deg);}
+}
+
+@keyframes grow-left {
+  from {width:0vw}
+  to{width:50vw}
+}
+@keyframes grow-right {
+  from {width:0vw}
+  to{width:-50vw}
+}
+.movie-poster-one-bg{
+  width:50vw;
+  height:100vh;
+  background-color:orange;
+  float: left;
+  animation-name:grow-left;
+  animation-duration:1s;
+  animation-timing-function:ease-in;
+  animation-iteration-count: infinite;
+}
+.movie-poster-one-bg:before{
+  content:'';
+  width:100%;
+  height:100%;
+  background-position:30% 30%;
+  display:block;
+  filter:opacity(.25) grayscale(100%) contrast(130%);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-image:url('https://image.tmdb.org/t/p/w1400_and_h450_bestv2/xVzvD5BPAU4HpleFSo8QOdHkndo.jpg');
+}
+.movie-poster-two-bg{
+  width:50vw;
+  height:100vh;
+  background-color:yellow;
+  float: right;
+/*   border:1px solid black; */
+  animation-name:grow-right;
+  animation-duration:1s;
+  animation-timing-function:ease-in;
+  animation-iteration-count: infinite;
+}
+.movie-poster-two-bg:before{
+  content:'';
+  width:100%;
+  height:100%;
+  background-position:30% 30%;
+  display:block;
+  filter:opacity(.25) grayscale(100%) contrast(130%);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-image:url('https://image.tmdb.org/t/p/w1400_and_h450_bestv2/5wNUJs23rT5rTBacNyf5h83AynM.jpg');
+}
 #random-btn{
   width:200px;
   height:50px;
   border-radius:20px;
   background-color:blue;
   line-height:50px;
-  margin:auto;
 }
